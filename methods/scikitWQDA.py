@@ -109,7 +109,7 @@ class WQDA(BaseEstimator):
 		logjoint = numpy.log(self.priors_) + loglik
 
 		if normalize:
-			normalization = scipy.misc.logsumexp(logjoint, axis=1)
+			normalization = scipy.special.logsumexp(logjoint, axis=1)
 			return logjoint - numpy.reshape(normalization, (len(normalization), 1))
 		else:
 			return logjoint
